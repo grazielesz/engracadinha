@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IMPORTANTE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./anel.png" type="image/pngS">
+</head>
+<body>
+    <div id="question"> ✨CASA COMIGO? ✨</div>
+    <div id="options">
+        <div id="noContainer">
+            <button id="no" class="button">não</button>
+            <a href="https://open.spotify.com/intl-pt/track/1uz6Dn7js13smmiT32vq1i?si=9a5d4fff94824ccb"><button id="yes" class="button">sim!!!</button></a>
+        </div>
+    </div>
+    <script>
+        var noButton = document.getElementById("no");
+        var noContainer = document.getElementById("noContainer");
+
+        function moveNoButton() {
+            var containerWidth = noContainer.offsetWidth - noButton.offsetWidth;
+            var containerHeight = noContainer.offsetHeight - noButton.offsetHeight;
+
+            var newLeft = Math.random() * containerWidth;
+            var newTop = Math.random() * containerHeight;
+
+            newLeft = Math.max(newLeft, 0);
+            newLeft = Math.min(newLeft, containerWidth);
+            newTop = Math.max(newTop, 0);
+            newTop = Math.min(newTop, containerHeight);
+
+            noButton.style.transform = `translate(${newLeft}px, ${newTop}px)`;
+        }
+
+        noButton.addEventListener("mouseover", moveNoButton);
+
+        noButton.addEventListener("mouseleave", function () {
+            setTimeout(moveNoButton, 1000);
+        });
+    </script>
+        <img src="cute-cat.gif">
+</body>
+
+</html>
